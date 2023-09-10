@@ -2,6 +2,8 @@
 
 A simple application to manage notes with backend services, leveraging Redis and MySQL.
 
+### [API Documentation](https://drive.google.com/file/d/1ERjjyeWSTSVVlaivyjwEDvo7XqXoVulr/view?usp=sharing)
+
 ## Table of Contents
 
 - [NoteApp](#noteapp)
