@@ -1,0 +1,39 @@
+version: "3"
+
+services:
+  mysql:
+    image: mysql:8.1
+    restart: always
+    ports:
+      - 3306:3306
+    env_file:
+      - .env
+    container_name: "noteapp-db"
+    networks:
+      - noteapp-network
+  redis:
+    image: redis:7.2-alpine
+    restart: always
+    ports:
+      - "6379:6379"
+    env_file:
+      - .env
+    command: redis-server --save 20 1 --loglevel warning --requirepass ${REDIS_PASSWORD}
+    container_name: "noteapp-redis"
+    networks:
+      - noteapp-network
+  noteapp-backend:
+    build:
+      context: .
+    image: noteapp-backend:latest
+    container_name: noteapp-backend
+    depends_on:
+      - mysql
+      - redis
+    ports:
+      - "5000:5000"
+    networks:
+      - noteapp-network
+    command: sh -c "while ! nc -z noteapp-db 3306; do sleep 1; done && npm start"
+networks:
+  noteapp-network:
