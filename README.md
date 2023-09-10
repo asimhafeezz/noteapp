@@ -5,7 +5,6 @@ A simple application to manage notes with backend services, leveraging Redis and
 ## Table of Contents
 
 - [NoteApp](#noteapp)
-  - [Table of Contents](#table-of-contents)
   - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
