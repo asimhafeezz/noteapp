@@ -51,4 +51,3 @@ Once the containers are up and running:
 
 - Access the backend services at the designated port.
 - Interact with the MySQL database using your preferred client, connecting with the credentials specified in the `docker-compose.yml` file.
-- Utilize Redis for caching or other operations as per your application's logic.
